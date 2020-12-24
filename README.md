@@ -1,10 +1,10 @@
 # TIRhythm
 A variety of rhythm game map players for the TI Nspire
 
-## Installation
+## Installation + Instructions
 Included inside each of the folders is the Python source code for both the beatmap converters and the runners. Download and extract the repository as a .zip file, and navigate to the desired project's folder.
 
-To convert a beatmap, run the converter.py script. This will open a file chooser for you to select a beatmap to convert. Once the beatmap has been converted, the contents will output to the console as well as your clipboard. From there, edit the contents of TI\[x\].py (where \[x\] is the game mode, e.x. TIMania.py) and paste the resulting beatmap data into the `data` variable.
+To convert a beatmap, run the converter.py script. This will open a file chooser for you to select a beatmap to convert. Once the beatmap has been converted, the contents will output to the console as well as your clipboard. From there, load the project's .tns file into the Nspire Student Software and edit the Python script. Paste the beatmap data in your clipboard into the `data` variable. You may also edit the project's TI\[x\].py file and load that into the Nspire (though some more copy-pasting will be necessary.)
 
 **Protip for advanced haxors**: you can also run converter.py in the console and pass in a file path to a beatmap. This will let you bypass the file dialog entirely. Theoretically, this could be used to pipe data into another program for conversion there.
 
