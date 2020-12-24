@@ -5,11 +5,11 @@ import pyperclip
 import sys
 
 def stringify(hitObject):
-	"""Turns a TaikoObject into a string that TIMania understands"""
+	"""Turns a TaikoObject into a string that TITaiko understands"""
 
 	ret = str(int(hitObject.offset)) + ':' + str(hitObject.objType.value)
 
-	# Add a third parameter if the object is a hold
+	# Add a third parameter if the object is a long note
 	if (hitObject.length != None):
 		ret += ':' + str(int(hitObject.length))
 
@@ -22,7 +22,7 @@ if (len(sys.argv) >= 2):
 	filePath = sys.argv[1]
 else:
 	root = tk.Tk()
-	root.title('TIMania Open File')
+	root.title('TITaiko Open File')
 	root.geometry('1x1')
 	filePath = filedialog.askopenfilename()
 	

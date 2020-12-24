@@ -50,7 +50,7 @@ class TaikoBeatmap:
 				lSplit = line.split(',')
 
 				if (len(lSplit) == 8):
-					newPoint = TimingPoint(int(lSplit[0]), float(lSplit[1]), int(lSplit[2]), int(lSplit[6]), int(lSplit[7]))
+					newPoint = TimingPoint(int(lSplit[0]), float(lSplit[1]), int(lSplit[2]), int(lSplit[6]), float(lSplit[7]))
 					self.timingPoints.append(newPoint)
 				else:
 					print ('There seems to be an invalid timing point, will ignore: ' + line)
@@ -72,10 +72,10 @@ class TaikoBeatmap:
 					if (isBitSet(hitsounds, 3)):
 						objType = TaikoObjectType.DONL if objType == TaikoObjectType.DON else TaikoObjectType.KATL # If the Finish flag is set, the object is a large Don/Kat
 				
-				elif (len(lSplit) == 11): # Process Drumroll
+				elif (len(lSplit) == 11 or len(lSplit) == 8): # Process Drumroll
 					offset = int(lSplit[2])
 					objType = TaikoObjectType.ROLL
-					length = int(lSplit[7]) / (self.sliderMultiplier * 100) * self.timingPointAt(offset).beatLength
+					length = float(lSplit[7]) / (self.sliderMultiplier * 100) * self.timingPointAt(offset).beatLength
 				
 				elif (len(lSplit) == 7): # Process Spinner/Denden
 					offset = int(lSplit[2])
