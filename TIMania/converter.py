@@ -1,3 +1,7 @@
+# TIMania - converter.py
+# Created by Brandon Lee (SixBeeps)
+# See included license for more details
+
 import reamber
 import tkinter as tk
 from tkinter import filedialog
