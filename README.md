@@ -12,5 +12,5 @@ To convert a beatmap, run the converter.py script. This will open a file chooser
 The TI Nspire has a strange bug that causes the timer to run slower than realtime speed. This is fixed by multiplying the program timer's value by 1.024, as noted by the comment in the runner programs. If running on a PC, you should set the variable back to 1 so that the program doesn't run faster than expected.
 
 ## Examples
-TIMania 4k: [サイバーサンダーサイダー (Cyber Thunder Cider)](https://www.youtube.com/watch?v=18ajAmFy78g)
-TIMania 7k: [Fool Moon Night](https://www.youtube.com/watch?v=K4GSyjPjq4k)
+- TIMania 4k: [サイバーサンダーサイダー (Cyber Thunder Cider)](https://www.youtube.com/watch?v=18ajAmFy78g)
+- TIMania 7k: [Fool Moon Night](https://www.youtube.com/watch?v=K4GSyjPjq4k)
