@@ -52,9 +52,10 @@ class TaikoBeatmap:
 				if (len(lSplit) == 8):
 					newPoint = TimingPoint(int(lSplit[0]), float(lSplit[1]), int(lSplit[2]), int(lSplit[6]), float(lSplit[7]))
 					self.timingPoints.append(newPoint)
-				else:
+				elif (line.strip() != ''):
 					print ('There seems to be an invalid timing point, will ignore: ' + line)
 			self.timingPoints.sort(key=lambda x: x.time)
+			print([p.time for p in self.timingPoints])
 
 			# Process Hitobjects
 			
@@ -75,7 +76,7 @@ class TaikoBeatmap:
 				elif (len(lSplit) == 11 or len(lSplit) == 8): # Process Drumroll
 					offset = int(lSplit[2])
 					objType = TaikoObjectType.ROLL
-					length = float(lSplit[6]) * (float(lSplit[7]) / (self.sliderMultiplier * 100) * self.timingPointAt(offset).beatLength)
+					length = float(lSplit[7]) / (self.sliderMultiplier * 100) * self.timingPointAt(offset).beatLength
 				
 				elif (len(lSplit) == 7): # Process Spinner/Denden
 					offset = int(lSplit[2])
@@ -92,12 +93,10 @@ class TaikoBeatmap:
 		return self
 
 	def timingPointAt(self, t):
-		"""Returns the beatmap's TimingPoint at a given time, or None if there isn't any.
-		
-		Please note: the .osu file format usually keeps this value negative for inherited timing points. However, they are sign flipped when a TimingPoint is created. If you need this value to be negative again, make sure to check if the timing point is inherited first."""
+		"""Returns the beatmap's TimingPoint at a given time, or None if there isn't any"""
 
 		for point in self.timingPoints:
-			if (point.time >= t):
+			if (point.time <= t):
 				return point
 		return None
 
@@ -126,7 +125,7 @@ class TimingPoint:
 
 	def __init__(self, t, beatLength, meter, uninherited, effects):
 		self.time = t
-		self.beatLength = beatLength * (-1 if uninherited == 0 else 1)
+		self.beatLength = beatLength
 		self.meter = meter
 		self.uninherited = uninherited
 		self.effects = effects
